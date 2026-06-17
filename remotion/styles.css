@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg: #08080a;
+  --bg-elevated: #111114;
+  --accent: #e8b923;
+  --accent-dim: #c49a1a;
+  --ink: #e8e6e3;
+  --ink-muted: #6b6b6b;
+  --border: #222225;
+  --positive: #22c55e;
+  --lyft-pink: #ff00bf;
+  --uber-black: #276ef1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Source Sans 3', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.font-body {
+  font-family: 'Source Sans 3', sans-serif;
+}
