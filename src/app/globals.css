@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #08080a;
+  --bg-elevated: #0e0e11;
+  --ink: #e8e6e3;
+  --ink-muted: #6b6b6f;
+  --accent: #e8b923;
+  --accent-dim: #c49a1a;
+  --positive: #2d9d78;
+  --negative: #d64545;
+  --border-color: #1c1c1f;
+  --border-rule: #2a2a2e;
+  --uber: #276EF1;
+  --lyft: #FF00BF;
+  --orange: #FF9800;
+  --green: #4CAF50;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: 'Source Sans 3', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-rule);
+}
+
+::selection {
+  background: rgba(232, 185, 35, 0.2);
+  color: var(--ink);
+}
