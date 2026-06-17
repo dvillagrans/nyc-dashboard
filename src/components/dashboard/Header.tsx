@@ -3,9 +3,19 @@
 export default function Header() {
   return (
     <header className="border-b-2 border-accent pb-6 mb-8">
-      <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent mb-2">
-        NYC TLC · FHV Trip Data
-      </p>
+      <div className="flex items-center justify-between mb-2">
+        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+          NYC TLC · FHV Trip Data
+        </p>
+        <a
+          href="https://dvillagrans.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-[11px] uppercase tracking-[0.15em] text-ink-muted hover:text-accent transition-colors"
+        >
+          dvillagrans.dev →
+        </a>
+      </div>
       <h1 className="font-display text-4xl font-extrabold text-ink leading-tight">
         Ride-Hailing{' '}
         <span className="text-accent">Analytics</span>
