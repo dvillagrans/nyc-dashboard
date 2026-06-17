@@ -35,21 +35,21 @@ export default function DashboardOverview() {
       }}
     >
       <BrowserMockup>
-        <div style={{ padding: '40px 50px', background: '#08080a' }}>
+        <div style={{ padding: '50px 70px', background: '#08080a' }}>
           {/* Dashboard Header */}
           <div
             style={{
               opacity: headerOpacity,
               transform: `translateY(${headerY}px)`,
               borderBottom: '2px solid #e8b923',
-              paddingBottom: 24,
-              marginBottom: 32,
+              paddingBottom: 36,
+              marginBottom: 48,
             }}
           >
             <p
               style={{
                 fontFamily: "'IBM Plex Mono', monospace",
-                fontSize: 11,
+                fontSize: 16,
                 textTransform: 'uppercase',
                 letterSpacing: '0.2em',
                 color: '#e8b923',
@@ -61,7 +61,7 @@ export default function DashboardOverview() {
             <h1
               style={{
                 fontFamily: "'Syne', sans-serif",
-                fontSize: 36,
+                fontSize: 52,
                 fontWeight: 800,
                 color: '#e8e6e3',
                 lineHeight: 1.2,
@@ -77,7 +77,7 @@ export default function DashboardOverview() {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: 16,
+              gap: 24,
               marginBottom: 32,
             }}
           >
@@ -99,7 +99,7 @@ export default function DashboardOverview() {
                     background: '#111114',
                     border: '1px solid #222225',
                     borderLeft: '3px solid #e8b923',
-                    padding: 20,
+                    padding: 28,
                     opacity: cardOpacity,
                     transform: `translateY(${cardY}px)`,
                   }}
@@ -107,7 +107,7 @@ export default function DashboardOverview() {
                   <p
                     style={{
                       fontFamily: "'IBM Plex Mono', monospace",
-                      fontSize: 11,
+                      fontSize: 15,
                       textTransform: 'uppercase',
                       letterSpacing: '0.2em',
                       color: '#6b6b6b',
@@ -123,7 +123,7 @@ export default function DashboardOverview() {
                     decimals={kpi.decimals}
                     startFrame={cardDelay + 5}
                     duration={40}
-                    fontSize={32}
+                    fontSize={48}
                   />
                 </div>
               );
@@ -135,7 +135,7 @@ export default function DashboardOverview() {
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
-              gap: 16,
+              gap: 24,
             }}
           >
             {[0, 1].map((index) => {
@@ -156,7 +156,7 @@ export default function DashboardOverview() {
                     background: '#111114',
                     border: '1px solid #222225',
                     padding: 20,
-                    height: 200,
+                    height: 320,
                     opacity: chartOpacity,
                     transform: `translateY(${chartY}px)`,
                     display: 'flex',
@@ -166,7 +166,7 @@ export default function DashboardOverview() {
                   <p
                     style={{
                       fontFamily: "'IBM Plex Mono', monospace",
-                      fontSize: 10,
+                      fontSize: 14,
                       textTransform: 'uppercase',
                       letterSpacing: '0.15em',
                       color: '#6b6b6b',
@@ -180,7 +180,7 @@ export default function DashboardOverview() {
                     {index === 0 ? (
                       // Bar chart
                       Array.from({ length: 12 }).map((_, i) => {
-                        const heights = [30, 20, 15, 12, 15, 25, 40, 55, 60, 55, 50, 45];
+                        const heights = [45, 30, 23, 18, 23, 38, 60, 83, 90, 83, 75, 68];
                         const barDelay = chartDelay + 20 + i * 2;
                         const barHeight = interpolate(frame, [barDelay, barDelay + 15], [0, heights[i]], {
                           extrapolateLeft: 'clamp',
@@ -202,8 +202,8 @@ export default function DashboardOverview() {
                       // Pie chart representation
                       <div
                         style={{
-                          width: 120,
-                          height: 120,
+                          width: 180,
+                          height: 180,
                           borderRadius: '50%',
                           background: `conic-gradient(#ff00bf 0% 75%, #276ef1 75% 100%)`,
                           margin: 'auto',
@@ -213,7 +213,7 @@ export default function DashboardOverview() {
                         <div
                           style={{
                             position: 'absolute',
-                            inset: 20,
+                            inset: 30,
                             borderRadius: '50%',
                             background: '#111114',
                           }}

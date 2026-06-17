@@ -27,7 +27,7 @@ export default function Outro() {
   });
 
   // Accent line
-  const lineWidth = interpolate(frame, [20, 60], [0, 300], {
+  const lineWidth = interpolate(frame, [20, 60], [0, 500], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
@@ -56,13 +56,13 @@ export default function Outro() {
       <h2
         style={{
           fontFamily: "'Syne', sans-serif",
-          fontSize: 56,
+          fontSize: 80,
           fontWeight: 800,
           color: '#e8e6e3',
           letterSpacing: '-0.02em',
           opacity: textOpacity,
           transform: `translateY(${textY}px)`,
-          marginBottom: 24,
+          marginBottom: 36,
         }}
       >
         Explore the{' '}
@@ -73,9 +73,9 @@ export default function Outro() {
       <div
         style={{
           width: lineWidth,
-          height: 3,
+          height: 5,
           background: 'linear-gradient(90deg, transparent, #e8b923, transparent)',
-          marginBottom: 32,
+          marginBottom: 48,
         }}
       />
 
@@ -89,14 +89,14 @@ export default function Outro() {
           transform: `translateY(${urlY}px)`,
           background: '#111114',
           border: '1px solid #222225',
-          padding: '16px 32px',
+          padding: '24px 48px',
           borderRadius: 8,
         }}
       >
         <span
           style={{
             fontFamily: "'IBM Plex Mono', monospace",
-            fontSize: 16,
+            fontSize: 22,
             color: '#6b6b6b',
           }}
         >
@@ -105,7 +105,7 @@ export default function Outro() {
         <span
           style={{
             fontFamily: "'IBM Plex Mono', monospace",
-            fontSize: 18,
+            fontSize: 26,
             color: '#e8b923',
             letterSpacing: '0.02em',
           }}
@@ -115,8 +115,8 @@ export default function Outro() {
         <span
           style={{
             display: 'inline-block',
-            width: 2,
-            height: 20,
+            width: 3,
+            height: 28,
             background: '#e8b923',
             marginLeft: 2,
             opacity: cursorOpacity,
@@ -128,11 +128,11 @@ export default function Outro() {
       <p
         style={{
           fontFamily: "'IBM Plex Mono', monospace",
-          fontSize: 12,
+          fontSize: 18,
           color: '#6b6b6b',
           letterSpacing: '0.15em',
           textTransform: 'uppercase',
-          marginTop: 24,
+          marginTop: 36,
           opacity: interpolate(frame, [60, 80], [0, 1], {
             extrapolateLeft: 'clamp',
             extrapolateRight: 'clamp',

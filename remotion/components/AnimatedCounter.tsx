@@ -17,7 +17,7 @@ export default function AnimatedCounter({
   suffix = '',
   duration = 60,
   startFrame = 0,
-  fontSize = 72,
+  fontSize = 96,
   color = 'var(--accent)',
   decimals = 0,
 }: AnimatedCounterProps) {

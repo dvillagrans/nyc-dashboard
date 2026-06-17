@@ -119,33 +119,33 @@ export default function ChartsShowcase() {
           alignItems: 'center',
           opacity: heatmapOpacity,
           transform: `scale(${heatmapScale})`,
-          padding: 80,
+          padding: 60,
         }}
       >
         <p
           style={{
             fontFamily: "'IBM Plex Mono', monospace",
-            fontSize: 13,
+            fontSize: 18,
             textTransform: 'uppercase',
             letterSpacing: '0.3em',
             color: '#e8b923',
-            marginBottom: 32,
+            marginBottom: 48,
           }}
         >
           Trip Density — Hour × Day of Week
         </p>
         <div style={{ display: 'flex', gap: 8 }}>
           {/* Hour labels */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 3, paddingTop: 24 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 5, paddingTop: 24 }}>
             {HOURS.filter((_, i) => i % 3 === 0).map((h) => (
               <div
                 key={h}
                 style={{
-                  height: 28,
+                  height: 38,
                   display: 'flex',
                   alignItems: 'center',
                   fontFamily: "'IBM Plex Mono', monospace",
-                  fontSize: 10,
+                  fontSize: 14,
                   color: '#6b6b6b',
                 }}
               >
@@ -156,15 +156,15 @@ export default function ChartsShowcase() {
           {/* Grid */}
           <div>
             {/* Weekday labels */}
-            <div style={{ display: 'flex', gap: 3, marginBottom: 6, paddingLeft: 2 }}>
+            <div style={{ display: 'flex', gap: 5, marginBottom: 6, paddingLeft: 2 }}>
               {WEEKDAYS.map((day) => (
                 <div
                   key={day}
                   style={{
-                    width: 70,
+                    width: 95,
                     textAlign: 'center',
                     fontFamily: "'IBM Plex Mono', monospace",
-                    fontSize: 10,
+                    fontSize: 14,
                     color: '#6b6b6b',
                   }}
                 >
@@ -174,7 +174,7 @@ export default function ChartsShowcase() {
             </div>
             {/* Cells */}
             {HEATMAP_DATA.map((row, hourIdx) => (
-              <div key={hourIdx} style={{ display: 'flex', gap: 3, marginBottom: 3 }}>
+              <div key={hourIdx} style={{ display: 'flex', gap: 5, marginBottom: 5 }}>
                 {row.map((val, dayIdx) => {
                   const cellDelay = 15 + (hourIdx * 7 + dayIdx) * 0.5;
                   const cellOpacity = interpolate(frame, [cellDelay, cellDelay + 5], [0, 1], {
@@ -185,8 +185,8 @@ export default function ChartsShowcase() {
                     <div
                       key={dayIdx}
                       style={{
-                        width: 70,
-                        height: 28,
+                        width: 95,
+                        height: 38,
                         background: getHeatColor(val),
                         borderRadius: 3,
                         opacity: hourIdx % 3 === 0 ? cellOpacity : cellOpacity * 0.9,
@@ -216,7 +216,7 @@ export default function ChartsShowcase() {
         <p
           style={{
             fontFamily: "'IBM Plex Mono', monospace",
-            fontSize: 13,
+            fontSize: 18,
             textTransform: 'uppercase',
             letterSpacing: '0.3em',
             color: '#e8b923',
@@ -224,12 +224,12 @@ export default function ChartsShowcase() {
         >
           Market Share — Uber vs Lyft
         </p>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 80 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 100 }}>
           {/* Pie */}
           <div
             style={{
-              width: 320,
-              height: 320,
+              width: 450,
+              height: 450,
               borderRadius: '50%',
               background: `conic-gradient(#ff00bf 0% ${PIE_LYFT}%, #276ef1 ${PIE_LYFT}% 100%)`,
               transform: `rotate(${pieRotation}deg)`,
@@ -240,7 +240,7 @@ export default function ChartsShowcase() {
             <div
               style={{
                 position: 'absolute',
-                inset: 60,
+                inset: 90,
                 borderRadius: '50%',
                 background: '#08080a',
                 display: 'flex',
@@ -251,7 +251,7 @@ export default function ChartsShowcase() {
               <span
                 style={{
                   fontFamily: "'Syne', sans-serif",
-                  fontSize: 28,
+                  fontSize: 40,
                   fontWeight: 700,
                   color: '#e8e6e3',
                 }}
@@ -283,8 +283,8 @@ export default function ChartsShowcase() {
                 >
                   <div
                     style={{
-                      width: 16,
-                      height: 16,
+                      width: 22,
+                      height: 22,
                       background: item.color,
                       borderRadius: 3,
                     }}
@@ -293,7 +293,7 @@ export default function ChartsShowcase() {
                     <p
                       style={{
                         fontFamily: "'Syne', sans-serif",
-                        fontSize: 24,
+                        fontSize: 32,
                         fontWeight: 700,
                         color: '#e8e6e3',
                       }}
@@ -303,7 +303,7 @@ export default function ChartsShowcase() {
                     <p
                       style={{
                         fontFamily: "'IBM Plex Mono', monospace",
-                        fontSize: 12,
+                        fontSize: 16,
                         color: '#6b6b6b',
                       }}
                     >
@@ -327,13 +327,13 @@ export default function ChartsShowcase() {
           justifyContent: 'center',
           alignItems: 'center',
           opacity: barOpacity,
-          padding: '80px 120px',
+          padding: '60px 100px',
         }}
       >
         <p
           style={{
             fontFamily: "'IBM Plex Mono', monospace",
-            fontSize: 13,
+            fontSize: 18,
             textTransform: 'uppercase',
             letterSpacing: '0.3em',
             color: '#e8b923',
@@ -346,13 +346,13 @@ export default function ChartsShowcase() {
           style={{
             display: 'flex',
             alignItems: 'flex-end',
-            gap: 24,
-            height: 400,
+            gap: 32,
+            height: 500,
             padding: '0 40px',
           }}
         >
           {BAR_DATA.map((item, index) => {
-            const maxHeight = 350;
+            const maxHeight = 450;
             const lyftHeight = (item.lyft / 350) * maxHeight;
             const uberHeight = (item.uber / 350) * maxHeight;
             const barDelay = 190 + index * 8;
@@ -379,7 +379,7 @@ export default function ChartsShowcase() {
                 <div style={{ display: 'flex', gap: 6, alignItems: 'flex-end' }}>
                   <div
                     style={{
-                      width: 36,
+                      width: 50,
                       height: lyftBarHeight,
                       background: '#ff00bf',
                       borderRadius: '4px 4px 0 0',
@@ -387,7 +387,7 @@ export default function ChartsShowcase() {
                   />
                   <div
                     style={{
-                      width: 36,
+                      width: 50,
                       height: uberBarHeight,
                       background: '#276ef1',
                       borderRadius: '4px 4px 0 0',
@@ -397,7 +397,7 @@ export default function ChartsShowcase() {
                 <span
                   style={{
                     fontFamily: "'IBM Plex Mono', monospace",
-                    fontSize: 11,
+                    fontSize: 15,
                     color: '#6b6b6b',
                   }}
                 >
@@ -408,16 +408,16 @@ export default function ChartsShowcase() {
           })}
         </div>
         {/* Legend */}
-        <div style={{ display: 'flex', gap: 32, marginTop: 24 }}>
+        <div style={{ display: 'flex', gap: 40, marginTop: 24 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <div style={{ width: 12, height: 12, background: '#ff00bf', borderRadius: 2 }} />
-            <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, color: '#6b6b6b' }}>
+            <div style={{ width: 16, height: 16, background: '#ff00bf', borderRadius: 2 }} />
+            <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 15, color: '#6b6b6b' }}>
               Lyft
             </span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <div style={{ width: 12, height: 12, background: '#276ef1', borderRadius: 2 }} />
-            <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, color: '#6b6b6b' }}>
+            <div style={{ width: 16, height: 16, background: '#276ef1', borderRadius: 2 }} />
+            <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 15, color: '#6b6b6b' }}>
               Uber
             </span>
           </div>

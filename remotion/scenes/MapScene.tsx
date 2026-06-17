@@ -24,15 +24,15 @@ const ZONES = [
   { zone: 'Zone_265', borough: 'Staten Island', trips: 80, lat: 40.590, lon: -74.077 },
 ];
 
-// Simplified NYC borough outlines (SVG path data)
-const NYC_PATH = `M 280 120 L 320 100 L 360 110 L 380 140 L 370 180 L 350 200 L 330 220
-  L 310 240 L 280 250 L 260 230 L 240 200 L 250 170 L 260 140 Z
-  M 350 200 L 380 210 L 410 230 L 420 260 L 400 290 L 370 300 L 340 280 L 330 250 Z
-  M 240 200 L 220 220 L 200 260 L 210 300 L 240 320 L 280 310 L 310 280 L 310 240
-  L 280 250 L 260 230 Z
-  M 310 280 L 340 300 L 370 310 L 400 300 L 420 310 L 440 340 L 420 370 L 380 380
-  L 340 360 L 310 330 Z
-  M 180 260 L 200 240 L 220 250 L 230 280 L 210 310 L 180 300 Z`;
+// Simplified NYC borough outlines (SVG path data) — scaled 1.33x
+const NYC_PATH = `M 373 160 L 426 133 L 479 146 L 505 186 L 492 240 L 466 266 L 439 293
+  L 412 320 L 373 333 L 346 306 L 319 266 L 333 226 L 346 186 Z
+  M 466 266 L 505 279 L 545 306 L 558 346 L 532 386 L 492 399 L 453 373 L 439 333 Z
+  M 319 266 L 293 293 L 266 346 L 279 399 L 319 426 L 373 412 L 412 373 L 412 320
+  L 373 333 L 346 306 Z
+  M 412 373 L 453 399 L 492 412 L 532 399 L 558 412 L 585 453 L 558 492 L 505 505
+  L 453 479 L 412 439 Z
+  M 240 346 L 266 319 L 293 333 L 306 373 L 279 412 L 240 399 Z`;
 
 // Convert lat/lon to SVG coordinates (simplified projection)
 function toSVG(lat: number, lon: number): { x: number; y: number } {
@@ -41,8 +41,8 @@ function toSVG(lat: number, lon: number): { x: number; y: number } {
   const minLon = -74.26;
   const maxLon = -73.70;
 
-  const x = 140 + ((lon - minLon) / (maxLon - minLon)) * 360;
-  const y = 380 - ((lat - minLat) / (maxLat - minLat)) * 300;
+  const x = 180 + ((lon - minLon) / (maxLon - minLon)) * 480;
+  const y = 500 - ((lat - minLat) / (maxLat - minLat)) * 400;
 
   return { x, y };
 }
@@ -92,11 +92,11 @@ export default function MapScene() {
       <p
         style={{
           fontFamily: "'IBM Plex Mono', monospace",
-          fontSize: 13,
+          fontSize: 18,
           textTransform: 'uppercase',
           letterSpacing: '0.3em',
           color: '#e8b923',
-          marginBottom: 32,
+          marginBottom: 48,
           opacity: titleOpacity,
         }}
       >
@@ -104,8 +104,8 @@ export default function MapScene() {
       </p>
 
       {/* Map Container */}
-      <div style={{ position: 'relative', width: 700, height: 500 }}>
-        <svg width="700" height="500" viewBox="0 0 600 420">
+      <div style={{ position: 'relative', width: 900, height: 650 }}>
+        <svg width="900" height="650" viewBox="0 0 800 560">
           {/* NYC outline */}
           <path
             d={NYC_PATH}
@@ -119,10 +119,10 @@ export default function MapScene() {
           {Array.from({ length: 8 }).map((_, i) => (
             <line
               key={`h-${i}`}
-              x1="100"
-              y1={60 + i * 45}
-              x2="550"
-              y2={60 + i * 45}
+              x1="130"
+              y1={80 + i * 60}
+              x2="730"
+              y2={80 + i * 60}
               stroke="#1a1a1f"
               strokeWidth="0.5"
             />
@@ -130,10 +130,10 @@ export default function MapScene() {
           {Array.from({ length: 10 }).map((_, i) => (
             <line
               key={`v-${i}`}
-              x1={100 + i * 50}
-              y1="60"
-              x2={100 + i * 50}
-              y2="380"
+              x1={130 + i * 67}
+              y1="80"
+              x2={130 + i * 67}
+              y2="500"
               stroke="#1a1a1f"
               strokeWidth="0.5"
             />
@@ -143,7 +143,7 @@ export default function MapScene() {
           {ZONES.map((zone, index) => {
             const pos = toSVG(zone.lat, zone.lon);
             const delay = 30 + index * 5;
-            const maxRadius = Math.sqrt(zone.trips) * 1.5;
+            const maxRadius = Math.sqrt(zone.trips) * 2.5;
 
             const circleScale = spring({
               frame: Math.max(0, frame - delay),
@@ -192,7 +192,7 @@ export default function MapScene() {
                 <circle
                   cx={pos.x}
                   cy={pos.y}
-                  r={3}
+                  r={5}
                   fill="#fff"
                   opacity={circleScale * 0.9}
                 />
@@ -207,7 +207,7 @@ export default function MapScene() {
         style={{
           display: 'flex',
           gap: 24,
-          marginTop: 24,
+          marginTop: 36,
           opacity: interpolate(frame, [80, 100], [0, 1], {
             extrapolateLeft: 'clamp',
             extrapolateRight: 'clamp',
@@ -218,8 +218,8 @@ export default function MapScene() {
           <div key={name} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <div
               style={{
-                width: 10,
-                height: 10,
+                width: 14,
+                height: 14,
                 borderRadius: '50%',
                 background: color,
               }}
@@ -227,7 +227,7 @@ export default function MapScene() {
             <span
               style={{
                 fontFamily: "'IBM Plex Mono', monospace",
-                fontSize: 10,
+                fontSize: 14,
                 color: '#6b6b6b',
               }}
             >

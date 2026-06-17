@@ -30,7 +30,7 @@ export default function Intro() {
   });
 
   // Gold accent line
-  const lineWidth = interpolate(frame, [40, 80], [0, 400], {
+  const lineWidth = interpolate(frame, [40, 80], [0, 600], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
@@ -53,11 +53,11 @@ export default function Intro() {
       }}
     >
       {/* Title with typewriter */}
-      <div style={{ marginBottom: 24, minHeight: 80 }}>
+      <div style={{ marginBottom: 36, minHeight: 80 }}>
         <span
           style={{
             fontFamily: "'Syne', sans-serif",
-            fontSize: 64,
+            fontSize: 96,
             fontWeight: 800,
             color: '#e8e6e3',
             letterSpacing: '-0.02em',
@@ -68,8 +68,8 @@ export default function Intro() {
         <span
           style={{
             display: 'inline-block',
-            width: 4,
-            height: 60,
+            width: 6,
+            height: 90,
             background: '#e8b923',
             marginLeft: 4,
             opacity: cursorOpacity,
@@ -82,9 +82,9 @@ export default function Intro() {
       <div
         style={{
           width: lineWidth,
-          height: 3,
+          height: 5,
           background: 'linear-gradient(90deg, #e8b923, #e8b923 70%, transparent)',
-          marginBottom: 24,
+          marginBottom: 36,
         }}
       />
 
@@ -92,7 +92,7 @@ export default function Intro() {
       <p
         style={{
           fontFamily: "'IBM Plex Mono', monospace",
-          fontSize: 18,
+          fontSize: 28,
           color: '#6b6b6b',
           letterSpacing: '0.1em',
           textTransform: 'uppercase',

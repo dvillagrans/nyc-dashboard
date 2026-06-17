@@ -44,11 +44,11 @@ export default function KeyStats() {
       <p
         style={{
           fontFamily: "'IBM Plex Mono', monospace",
-          fontSize: 14,
+          fontSize: 22,
           textTransform: 'uppercase',
           letterSpacing: '0.3em',
           color: '#e8b923',
-          marginBottom: 48,
+          marginBottom: 64,
           opacity: titleOpacity,
           transform: `translateY(${titleY}px)`,
         }}
@@ -61,7 +61,7 @@ export default function KeyStats() {
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: 60,
+          gap: 80,
           maxWidth: 1400,
         }}
       >
@@ -92,16 +92,16 @@ export default function KeyStats() {
                 decimals={stat.decimals}
                 startFrame={delay + 10}
                 duration={50}
-                fontSize={80}
+                fontSize={120}
               />
               <p
                 style={{
                   fontFamily: "'IBM Plex Mono', monospace",
-                  fontSize: 13,
+                  fontSize: 18,
                   textTransform: 'uppercase',
                   letterSpacing: '0.2em',
                   color: '#6b6b6b',
-                  marginTop: 12,
+                  marginTop: 20,
                 }}
               >
                 {stat.label}
@@ -114,13 +114,13 @@ export default function KeyStats() {
       {/* Bottom accent line */}
       <div
         style={{
-          width: interpolate(frame, [60, 100], [0, 600], {
+          width: interpolate(frame, [60, 100], [0, 800], {
             extrapolateLeft: 'clamp',
             extrapolateRight: 'clamp',
           }),
-          height: 2,
+          height: 4,
           background: 'linear-gradient(90deg, transparent, #e8b923, transparent)',
-          marginTop: 56,
+          marginTop: 72,
         }}
       />
     </AbsoluteFill>

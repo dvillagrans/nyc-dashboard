@@ -30,9 +30,9 @@ export default function BrowserMockup({ children, startFrame = 0 }: BrowserMocku
   return (
     <div
       style={{
-        width: 1600,
+        width: 1800,
         background: '#1a1a1f',
-        borderRadius: 12,
+        borderRadius: 16,
         overflow: 'hidden',
         border: '1px solid #333',
         transform: `scale(${scale})`,
@@ -46,16 +46,16 @@ export default function BrowserMockup({ children, startFrame = 0 }: BrowserMocku
           display: 'flex',
           alignItems: 'center',
           gap: 8,
-          padding: '14px 18px',
+          padding: '18px 24px',
           background: '#111114',
           borderBottom: '1px solid #222',
         }}
       >
         {/* Traffic lights */}
         <div style={{ display: 'flex', gap: 7 }}>
-          <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ff5f57' }} />
-          <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#febc2e' }} />
-          <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#28c840' }} />
+          <div style={{ width: 16, height: 16, borderRadius: '50%', background: '#ff5f57' }} />
+          <div style={{ width: 16, height: 16, borderRadius: '50%', background: '#febc2e' }} />
+          <div style={{ width: 16, height: 16, borderRadius: '50%', background: '#28c840' }} />
         </div>
         {/* URL bar */}
         <div
@@ -70,16 +70,16 @@ export default function BrowserMockup({ children, startFrame = 0 }: BrowserMocku
             gap: 8,
           }}
         >
-          <span style={{ color: '#6b6b6b', fontSize: 12, fontFamily: "'IBM Plex Mono', monospace" }}>
+          <span style={{ color: '#6b6b6b', fontSize: 16, fontFamily: "'IBM Plex Mono', monospace" }}>
             🔒
           </span>
-          <span style={{ color: '#888', fontSize: 12, fontFamily: "'IBM Plex Mono', monospace" }}>
+          <span style={{ color: '#888', fontSize: 16, fontFamily: "'IBM Plex Mono', monospace" }}>
             localhost:3000
           </span>
         </div>
       </div>
       {/* Content */}
-      <div style={{ padding: 0, minHeight: 700 }}>
+      <div style={{ padding: 0, minHeight: 850 }}>
         {children}
       </div>
     </div>
